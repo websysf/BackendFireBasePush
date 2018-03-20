@@ -1,21 +1,70 @@
-# Google Cloud Endpoints & Java
-This sample demonstrates how to use Google Cloud Endpoints using a Java backend.
+HelloWorld for App Engine Standard (Java 8)
+============================
 
-For a complete walkthrough showing how to run this sample in different environments, see the [Google Cloud Endpoints Quickstarts](https://cloud.google.com/endpoints/docs/quickstarts).
+This sample demonstrates how to deploy an application on Google App Engine.
 
-## Deploying to Production
+See the [Google App Engine standard environment documentation][ae-docs] for more
+detailed instructions.
 
-See the [Google Cloud Endpoints Quickstarts](https://cloud.google.com/endpoints/docs/quickstarts).
+[ae-docs]: https://cloud.google.com/appengine/docs/java/
 
-## Calling your API
 
-Please refer to the Google Cloud Endpoints [documentation](https://cloud.google.com/endpoints/docs/app-engine/) for App Engine Flexible Environment to learn about creating an API Key and calling your API.
+* [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Maven](https://maven.apache.org/download.cgi) (at least 3.5)
+* [Gradle](https://gradle.org/gradle-download/) (optional)
+* [Google Cloud SDK](https://cloud.google.com/sdk/) (aka gcloud)
 
-## Viewing the Endpoints graphs
+## Setup
 
-By using Endpoints, you get access to several metrics that are displayed graphically in the Cloud Console.
+• Download and initialize the [Cloud SDK](https://cloud.google.com/sdk/)
 
-To view the Endpoints graphs:
+    gcloud init
 
-1. Go to the [Endpoints section in Cloud Console](https://console.cloud.google.com/endpoints) of the project you deployed your API to.
-2. Click on your API to view more detailed information about the metrics collected.
+* Create an App Engine app within the current Google Cloud Project
+
+    gcloud app create
+
+## Maven
+### Running locally
+
+    mvn appengine:run
+
+To use vist: http://localhost:8080/
+
+### Deploying
+
+    mvn appengine:deploy
+
+To use vist:  https://YOUR-PROJECT-ID.appspot.com
+
+## Gradle
+### Running locally
+
+    gradle appengineRun
+
+If you do not have gradle installed, you can run using `./gradlew appengineRun`.
+
+To use vist: http://localhost:8080/
+
+### Deploying
+
+    gradle appengineDeploy
+
+If you do not have gradle installed, you can deploy using `./gradlew appengineDeploy`.
+
+To use vist:  https://YOUR-PROJECT-ID.appspot.com
+
+## Testing
+
+    mvn verify
+
+ or
+
+    gradle test
+
+As you add / modify the source code (`src/main/java/...`) it's very useful to add [unit testing](https://cloud.google.com/appengine/docs/java/tools/localunittesting)
+to (`src/main/test/...`).  The following resources are quite useful:
+
+* [Junit4](http://junit.org/junit4/)
+* [Mockito](http://mockito.org/)
+* [Truth](http://google.github.io/truth/)
