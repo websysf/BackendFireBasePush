@@ -65,6 +65,13 @@ limitations under the License.
     </dependency>
     <!-- [END servlet] -->
 
+    <dependency>
+      <groupId>com.google.firebase</groupId>
+      <artifactId>firebase-admin</artifactId>
+      <version>5.8.0</version>
+    </dependency>
+
+
     <!-- [START_EXCLUDE] -->
     <!-- Test Dependencies -->
     <dependency>
